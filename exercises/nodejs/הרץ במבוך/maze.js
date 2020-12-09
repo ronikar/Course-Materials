@@ -2,8 +2,9 @@ const TARGET_FILENAME = "target.txt";
 const TARGET_CONTENT = "You found the target";
 const OTHER_CONTENT = "I am not the target";
 
-function createMazeModel({ filename = TARGET_FILENAME, content = TARGET_CONTENT } = {}) {
-    const depth = 1;
+const DEFAULT_DEPTH = 3;
+
+function createMazeModel({ filename = TARGET_FILENAME, content = TARGET_CONTENT, depth = DEFAULT_DEPTH } = {}) {
     const maze = _createMazeModel("maze", depth);
 
     _locateTarget(maze, { name: filename, content })
