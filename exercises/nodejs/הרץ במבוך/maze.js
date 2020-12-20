@@ -7,7 +7,7 @@ const DEFAULT_DEPTH = 3;
 function createMazeModel({ filename = TARGET_FILENAME, content = TARGET_CONTENT, depth = DEFAULT_DEPTH } = {}) {
     const maze = _createMazeModel("maze", depth);
 
-    _locateTarget(maze, { name: filename, content })
+    _locateTarget(maze, { name: filename, content }, depth);
 
     return maze;
 }
@@ -36,7 +36,7 @@ function _locateTarget(maze, target, depth) {
     let level = 0;
     let currentDirectory = maze;
 
-    while (level < depth || _doesLocateTaegetFileHere(depth) || !currentDirectory.subdirectories) {
+    while (level < depth && !_doesLocateTaegetFileHere(depth) && currentDirectory.subdirectories) {
         const { subdirectories } = currentDirectory;
 
         currentDirectory = subdirectories[_getRandomNumber(0, subdirectories.length)];
