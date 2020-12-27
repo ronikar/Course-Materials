@@ -39,7 +39,7 @@ function _locateTarget(maze, target, depth) {
     while (level < depth && !_doesLocateTaegetFileHere(depth) && currentDirectory.subdirectories) {
         const { subdirectories } = currentDirectory;
 
-        currentDirectory = subdirectories[_getRandomNumber(0, subdirectories.length)];
+        currentDirectory = subdirectories[_getRandomNumber(0, subdirectories.length -1)];
         level++;
     }
 
